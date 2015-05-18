@@ -57,7 +57,7 @@
 		    Location
 		    <span class="caret"></span>
 		  </button>
-		  <ul id="locatNam" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taipei">台北市</a></li>
 		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#new_taipei">新北市</a></li>
 		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taichung">台中市</a></li>
@@ -74,10 +74,33 @@
             </div>
         </div>
         <!-- /.row -->
+         <span id="forst"></span>
     </div><!-- /.page-->
-
-
-    <span id="forst"></span>
+   <div id="taipei" style="display:none">
+   For Taipei
+   </div>
+   <div id="new_taipei" style="display:none">
+   New Taipei
+   </div>
+   <script>
+	/*$(document).ready(function(){
+        $("#dropdownMenu1").change(function(){
+            $( "#dropdownMenu1 li:selected").each(function(){
+                if($(this).attr("href")=="taipei"){
+                   alert("wwww");
+                }
+                if($(this).attr("href")=="new_taipei"){
+                   alert("aaa");
+                }
+                if($(this).attr("href")=="taichung"){
+                	alert("sss");
+                    //$(".box").hide();
+                    //$(".blue").show();
+                }
+            });
+        }).change();
+    });*/
+   </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -88,10 +111,13 @@
     var loca = data.query.results.channel.location;
     var winds = data.query.results.channel.wind;
     var temper = data.query.results.channel.item;
-    var fore = data.query.results.channel.forecast;
-    //$( "#locat" ).append( loca.city );
+    $( "#weacon" ).append( temper.title );
+  //   $( "#weacon" ).append( loca.city );
+   // $( "#weacon" ).append( winds.chill );
+    $( "#weacon" ).append( temper.forecast[0].text);
+   // $( "#locat" ).append( loca.city );
     //$( "#locat" ).append( $("#locatNam") );
-    $( "#weacon" ).append( winds.chill );
+    
     
     //alert(temper.lat);
     
