@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Weather</title>
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,66 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+    	<div class="dropdown" width="40%">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+		    Location
+		    <span class="caret"></span>
+		  </button>
+		  <ul id="locatNam" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taipei">台北市</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#new_taipei">新北市</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taichung">台中市</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#tainan">臺南市</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#kaohsiung">高雄市</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another</a></li>
+		  </ul>
+		</div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <h1 id="locat"></h1>
+                <span id="weacon"></span>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div><!-- /.page-->
+
+
+    <span id="forst"></span>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -26,13 +85,139 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script>
     var callbackFunction = function(data) {
-    var wind = data.query.results.channel.wind;
-    alert(wind.chill);
+    var loca = data.query.results.channel.location;
+    var winds = data.query.results.channel.wind;
+    var temper = data.query.results.channel.item;
+    var fore = data.query.results.channel.forecast;
+    //$( "#locat" ).append( loca.city );
+    //$( "#locat" ).append( $("#locatNam") );
+    $( "#weacon" ).append( winds.chill );
+    
+    //alert(temper.lat);
+    
+    // var foredayTwe = fore[3].date ;
+    // alert(foredayTwe);
+    //  $( "#locat" ).append( ( "" ) );
     };
 </script>
  
-<script src="https://query.yahooapis.com/v1/public/yql?q=select wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=callbackFunction"></script>
+<script src="https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=callbackFunction">
+	//select "ele?"
+</script>
+
   </body>
 </html>
+<!--
+{
+ "query": {
+  "count": 1,
+  "created": "2015-05-09T12:21:40Z",
+  "lang": "zh-tw",
+  "results": {
+   "channel": {
+    "title": "Yahoo! Weather - Greenland, GL",
+    "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Greenland__GL/*http://weather.yahoo.com/forecast/GLXX0012_f.html",
+    "description": "Yahoo! Weather for Greenland, GL",
+    "language": "en-us",
+    "lastBuildDate": "Sat, 09 May 2015 9:49 am CGST",
+    "ttl": "60",
+    "location": {
+     "city": "Greenland",
+     "country": "Greenland",
+     "region": ""
+    },
+    "units": {
+     "distance": "mi",
+     "pressure": "in",
+     "speed": "mph",
+     "temperature": "F"
+    },
+    "wind": {
+     "chill": "21",
+     "direction": "140",
+     "speed": "12"
+    },
+    "atmosphere": {
+     "humidity": "83",
+     "pressure": "30.12",
+     "rising": "0",
+     "visibility": "2.17"
+    },
+    "astronomy": {
+     "sunrise": "3:21 am",
+     "sunset": "11:22 pm"
+    },
+    "image": {
+     "title": "Yahoo! Weather",
+     "width": "142",
+     "height": "18",
+     "link": "http://weather.yahoo.com",
+     "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
+    },
+    "item": {
+     "title": "Conditions for Greenland, GL at 9:49 am CGST",
+     "lat": "71.8",
+     "long": "-42.18",
+     "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Greenland__GL/*http://weather.yahoo.com/forecast/GLXX0012_f.html",
+     "pubDate": "Sat, 09 May 2015 9:49 am CGST",
+     "condition": {
+      "code": "14",
+      "date": "Sat, 09 May 2015 9:49 am CGST",
+      "temp": "30",
+      "text": "Light Snow"
+     },
+     "description": "\n<img src=\"http://l.yimg.com/a/i/us/we/52/14.gif\"/><br />\n<b>Current Conditions:</b><br />\nLight Snow, 30 F<BR />\n<BR /><b>Forecast:</b><BR />\nSat - Cloudy. High: 32 Low: 22<br />\nSun - Mostly Cloudy. High: 33 Low: 26<br />\nMon - AM Clouds/PM Sun. High: 36 Low: 25<br />\nTue - Mostly Cloudy. High: 33 Low: 24<br />\nWed - Mostly Sunny. High: 34 Low: 23<br />\n<br />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Greenland__GL/*http://weather.yahoo.com/forecast/GLXX0012_f.html\">Full Forecast at Yahoo! Weather</a><BR/><BR/>\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)<br/>\n",
+     "forecast": [
+      {
+       "code": "26",
+       "date": "9 May 2015",
+       "day": "Sat",
+       "high": "32",
+       "low": "22",
+       "text": "Cloudy"
+      },
+      {
+       "code": "28",
+       "date": "10 May 2015",
+       "day": "Sun",
+       "high": "33",
+       "low": "26",
+       "text": "Mostly Cloudy"
+      },
+      {
+       "code": "30",
+       "date": "11 May 2015",
+       "day": "Mon",
+       "high": "36",
+       "low": "25",
+       "text": "AM Clouds/PM Sun"
+      },
+      {
+       "code": "28",
+       "date": "12 May 2015",
+       "day": "Tue",
+       "high": "33",
+       "low": "24",
+       "text": "Mostly Cloudy"
+      },
+      {
+       "code": "34",
+       "date": "13 May 2015",
+       "day": "Wed",
+       "high": "34",
+       "low": "23",
+       "text": "Mostly Sunny"
+      }
+     ],
+     "guid": {
+      "isPermaLink": "false",
+      "content": "GLXX0012_2015_05_13_7_00_CGST"
+     }
+    }
+   }
+  }
+ }
+}
+-->
 
 
