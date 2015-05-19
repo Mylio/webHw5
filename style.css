@@ -1,0 +1,13 @@
+<style>
+.active{
+	display: inline-block;
+}
+caption{
+	font-size: 20px;
+	font-weight: bold ;
+}
+#weacon{
+	color:white;
+	text-align: center;
+}
+</style>

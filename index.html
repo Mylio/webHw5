@@ -9,6 +9,8 @@
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,31 +23,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" align="center">
+                <span id="weacon"></span>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
@@ -58,80 +38,168 @@
 		    <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taipei">台北市</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#new_taipei">新北市</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taichung">台中市</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#tainan">臺南市</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#kaohsiung">高雄市</a></li>
-		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another</a></li>
+		    <div class="dropdown" width="40%">
+		    <ul class="list-unstyled col-md-4">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taipei">台北市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#new_taipei">新北市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taichung">台中市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#tainan">臺南市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#kaohsiung">高雄市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">基隆市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">桃園市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">新竹市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">新竹縣</a></li>
+			</ul>
+			<ul class="list-unstyled col-md-4">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苗栗縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">彰化縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">南投縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">雲林縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">嘉義市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">嘉義縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">屏東縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">宜蘭縣</a></li>
+		    </ul>
+		    <ul class="list-unstyled col-md-4">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">花蓮縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">台東縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">澎湖縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">金門縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">連江縣</a></li>
+		    </ul>
+		  	</div>
 		  </ul>
 		</div>
-
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <h1 id="locat"></h1>
-                <span id="weacon"></span>
+   
             </div>
         </div>
         <!-- /.row -->
-         <span id="forst"></span>
+    	<div id="today">    		
+    		<table class="table">
+    		<caption>Today's Weather</caption>
+    		<tr>
+    			<td id="today_1"></td><td id="today_2"></td><td id="today_3"></td>
+    		</tr>
+    		</table>
+    	</div>
+    	<hr>
+        <div id="dataTable">
+	    	<table class="table table-bordered">
+	    	<caption>Forecast</caption>
+			    <thead>
+			        <tr>
+			            <th data-field="data">日期</th>
+			            <th data-field="condict">天氣狀況</th>
+			            <th data-field="temper">氣溫(攝氏)</th>
+			        </tr><td id="fore1_1"></td><td id="fore1_2"></td><td id="fore1_3"></td>
+			        <tr>
+			        </tr><td id="fore2_1"></td><td id="fore2_2"></td><td id="fore2_3"></td>
+			        <tr>
+			        </tr><td id="fore3_1"></td><td id="fore3_2"></td><td id="fore3_3"></td>
+			        <tr>
+			        </tr>
+			    </thead>
+			</table>
+		</div>
+			    <div id="lacationInfor">
+				   <div id="taipei" style="display:none">
+				   For Taipei
+				   </div>
+				   <div id="new_taipei" style="display:none">
+				   New Taipei
+				   </div>
+		</div>
     </div><!-- /.page-->
-   <div id="taipei" style="display:none">
-   For Taipei
-   </div>
-   <div id="new_taipei" style="display:none">
-   New Taipei
-   </div>
+    
+
+
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   <!-- dropdown顯示部分 -->
    <script>
-	/*$(document).ready(function(){
-        $("#dropdownMenu1").change(function(){
-            $( "#dropdownMenu1 li:selected").each(function(){
-                if($(this).attr("href")=="taipei"){
-                   alert("wwww");
-                }
-                if($(this).attr("href")=="new_taipei"){
-                   alert("aaa");
-                }
-                if($(this).attr("href")=="taichung"){
-                	alert("sss");
-                    //$(".box").hide();
-                    //$(".blue").show();
-                }
+   var ajaxUrl ;
+   $(function(){
+    $(".dropdown-menu").on('click', 'li a', function(){
+	    $(".btn:first-child").text($(this).text());
+	    $(".btn:first-child").append(" "+"<span class='caret'></span>");
+	    $(".btn:first-child").val($(this).text());
+		if($(this).text()=="台北市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taipei, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="新北市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='new_taipei, il')&format=json&callback=callbackFunction" ;
+		alert("new_taipei");
+		}else if($(this).text()=="台中市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taichung, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="臺南市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='tainan, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="高雄市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='kaohsiung, il')&format=json&callback=callbackFunction" ;
+		};
+		/*
+	    var locNam = $(this).text();//optional
+		$('#lacationInfor').html(locNam);//optional
+		$("#lacationInfor").children($( "div" )).each(function() {
+		  $( this ).css("display","none");
+		});
+		    if($(this).text()=="台北市"){
+		      $("#taipei").show();
+		    }else if($(this).text()=="新北市"){
+		      $("#new_taipei").show();	
+		    };*/
+		 /*ajax*/
+    	$.ajax({
+    			url: ajaxUrl,
+                type:"POST",
+                dataType:'script',
+                success: function(msg){
+                    alert(msg);
+                },
+
+                 error:function(xhr, ajaxOptions, thrownError){ 
+                    alert(xhr.status); 
+                    alert(thrownError); 
+                 }
             });
-        }).change();
-    });*/
+		   	
+		   	});
+			});
+
    </script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script>
+    </script>
+    <script>
     var callbackFunction = function(data) {
+    $( "#weacon" ).empty();
+    $("td").empty();	
     var loca = data.query.results.channel.location;
     var winds = data.query.results.channel.wind;
     var temper = data.query.results.channel.item;
+    function ftoC (f){
+    	var c = (f-32)*5/9 ;
+    	return c.toFixed(1);
+    }
     $( "#weacon" ).append( temper.title );
-  //   $( "#weacon" ).append( loca.city );
-   // $( "#weacon" ).append( winds.chill );
-    $( "#weacon" ).append( temper.forecast[0].text);
-   // $( "#locat" ).append( loca.city );
-    //$( "#locat" ).append( $("#locatNam") );
-    
-    
-    //alert(temper.lat);
-    
-    // var foredayTwe = fore[3].date ;
-    // alert(foredayTwe);
-    //  $( "#locat" ).append( ( "" ) );
+    $( "#fore1_1" ).append( temper.forecast[1].date);
+    $( "#fore2_1" ).append( temper.forecast[2].date);
+    $( "#fore3_1" ).append( temper.forecast[3].date);
+    $( "#fore1_2" ).append( temper.forecast[1].text);
+    $( "#fore2_2" ).append( temper.forecast[2].text);
+    $( "#fore3_2" ).append( temper.forecast[3].text);
+    $( "#fore1_3" ).append( ftoC(temper.forecast[1].low) +" - "+ftoC(temper.forecast[1].high));
+    $( "#fore2_3" ).append( ftoC(temper.forecast[2].low) +" - "+ftoC(temper.forecast[2].high));
+    $( "#fore3_3" ).append( ftoC(temper.forecast[3].low) +" - "+ftoC(temper.forecast[3].high));
+    $( "#today_3" ).append( temper.forecast[0].date);
+    $( "#today_2" ).append( temper.forecast[0].text);
+    $( "#today_1" ).append( ftoC(temper.forecast[0].low) +" - "+ftoC(temper.forecast[0].high));
     };
 </script>
- 
-<script src="https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chicago, il')&format=json&callback=callbackFunction">
-	//select "ele?"
-</script>
-
-  </body>
+</body>
 </html>
 <!--
 {
