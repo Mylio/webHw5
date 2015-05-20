@@ -21,7 +21,7 @@
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation" style="z-index:-3;">
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" align="center">
                 <span id="weacon"></span>
@@ -32,50 +32,40 @@
 
     <!-- Page Content -->
     <div class="container">
-    	<div class="dropdown" width="40%">
+    	<div class="dropdown">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 		    Location
 		    <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		    <div class="dropdown" width="40%">
-		    <ul class="list-unstyled col-md-4">
+		   
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taipei">台北市</a></li>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#new_taipei">新北市</a></li>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taichung">台中市</a></li>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#tainan">臺南市</a></li>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#kaohsiung">高雄市</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">基隆市</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">桃園市</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">新竹市</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">新竹縣</a></li>
-			</ul>
-			<ul class="list-unstyled col-md-4">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苗栗縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">彰化縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">南投縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">雲林縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">嘉義市</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">嘉義縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">屏東縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">宜蘭縣</a></li>
-		    </ul>
-		    <ul class="list-unstyled col-md-4">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">花蓮縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">台東縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">澎湖縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">金門縣</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">連江縣</a></li>
-		    </ul>
-		  	</div>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#keelung_city">基隆市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taoyuan_country">桃園市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#hsinchu_city">新竹市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#hsinchu_country">新竹縣</a></li>
+			
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#miaoli_country">苗栗縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#changhua_country">彰化縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#nantou_country">南投縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#yunlin_country">雲林縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#chiayi_city">嘉義市</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#chiayi_country">嘉義縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#pingtung_country">屏東縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#yilan_country">宜蘭縣</a></li>
+		   
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#hualien_country">花蓮縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#taitung_country">台東縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#penghu_country">澎湖縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#kinmen_country">金門縣</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#lienchiang_country">連江縣</a></li>
+		 
 		  </ul>
 		</div>
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <h1 id="locat"></h1>
-   
-            </div>
-        </div>
         <!-- /.row -->
     	<div id="today">    		
     		<table class="table">
@@ -103,8 +93,9 @@
 			        </tr>
 			    </thead>
 			</table>
+			
 		</div>
-			    <div id="lacationInfor">
+		<div>
 				   <div id="taipei" style="display:none">
 				   For Taipei
 				   </div>
@@ -112,8 +103,36 @@
 				   New Taipei
 				   </div>
 		</div>
+		<canvas id="clear-day" width="64" height="64"></canvas>
+		<canvas id="icon1" width="128" height="128"></canvas>
     </div><!-- /.page-->
-    
+<!--test icon-->
+<script>
+  var skycons = new Skycons({"color": "pink"});
+  // on Android, a nasty hack is needed: {"resizeClear": true}
+
+  // you can add a canvas by it's ID...
+  skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
+
+  // ...or by the canvas DOM element itself.
+  skycons.add(document.getElementById("icon2"), Skycons.RAIN);
+
+  // if you're using the Forecast API, you can also supply
+  // strings: "partly-cloudy-day" or "rain".
+
+  // start animation!
+  skycons.play();
+
+  // you can also halt animation with skycons.pause()
+
+  // want to change the icon? no problem:
+  skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
+
+  // want to remove one altogether? no problem:
+  skycons.remove("icon2");
+</script>
+
+<!---->    
 
 
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -130,13 +149,46 @@
 		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taipei, il')&format=json&callback=callbackFunction" ;
 		}else if($(this).text()=="新北市"){
 		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='new_taipei, il')&format=json&callback=callbackFunction" ;
-		alert("new_taipei");
 		}else if($(this).text()=="台中市"){
 		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taichung, il')&format=json&callback=callbackFunction" ;
 		}else if($(this).text()=="臺南市"){
 		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='tainan, il')&format=json&callback=callbackFunction" ;
 		}else if($(this).text()=="高雄市"){
 		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='kaohsiung, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="基隆市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='keelung,il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="桃園市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='桃園市,il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="新竹市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='hsinchu_city, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="新竹縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='新竹縣, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="苗栗縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='miaoli_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="彰化縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='changhua_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="南投縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='nantou_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="雲林縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='yunlin_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="嘉義市"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chiayi_city, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="嘉義縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='嘉義縣, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="屏東縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='pingtung_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="宜蘭縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='yilan_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="花蓮縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='hualien_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="台東縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taitung_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="澎湖縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='penghu_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="金門縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='kinmen_country, il')&format=json&callback=callbackFunction" ;
+		}else if($(this).text()=="連江縣"){
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='連江縣, il')&format=json&callback=callbackFunction" ;
 		};
 		/*
 	    var locNam = $(this).text();//optional
@@ -155,7 +207,7 @@
                 type:"POST",
                 dataType:'script',
                 success: function(msg){
-                    alert(msg);
+                   // alert(msg);
                 },
 
                  error:function(xhr, ajaxOptions, thrownError){ 
@@ -171,6 +223,8 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https//darkskyapp.github.io/skycons/skycons.js"></script>
+    <script src="skyIcons.js"></script>
     <script>
     </script>
     <script>
@@ -191,12 +245,12 @@
     $( "#fore1_2" ).append( temper.forecast[1].text);
     $( "#fore2_2" ).append( temper.forecast[2].text);
     $( "#fore3_2" ).append( temper.forecast[3].text);
-    $( "#fore1_3" ).append( ftoC(temper.forecast[1].low) +" - "+ftoC(temper.forecast[1].high));
-    $( "#fore2_3" ).append( ftoC(temper.forecast[2].low) +" - "+ftoC(temper.forecast[2].high));
-    $( "#fore3_3" ).append( ftoC(temper.forecast[3].low) +" - "+ftoC(temper.forecast[3].high));
+    $( "#fore1_3" ).append( ftoC(temper.forecast[1].low) +" - "+ftoC(temper.forecast[1].high)+"&#8451;");
+    $( "#fore2_3" ).append( ftoC(temper.forecast[2].low) +" - "+ftoC(temper.forecast[2].high)+"&#8451;");
+    $( "#fore3_3" ).append( ftoC(temper.forecast[3].low) +" - "+ftoC(temper.forecast[3].high)+"&#8451;");
     $( "#today_3" ).append( temper.forecast[0].date);
     $( "#today_2" ).append( temper.forecast[0].text);
-    $( "#today_1" ).append( ftoC(temper.forecast[0].low) +" - "+ftoC(temper.forecast[0].high));
+    $( "#today_1" ).append( ftoC(temper.forecast[0].low) +" - "+ftoC(temper.forecast[0].high)+"&#8451;");
     };
 </script>
 </body>
