@@ -10,8 +10,6 @@
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,8 +18,11 @@
     <![endif]-->
   </head>
   <body>
+  <header><img src="img/banner1.jpg" width="100%"></header>
+  	
+ 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation" style="z-index:-3;">
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation" style="z-index:1;">
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" align="center">
                 <span id="weacon"></span>
@@ -34,7 +35,7 @@
     <div class="container">
     	<div class="dropdown">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-		    Location
+		    台北市
 		    <span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -70,8 +71,10 @@
     	<div id="today">    		
     		<table class="table">
     		<caption>Today's Weather</caption>
+    		<tr><td id="now"></td><td id="today_2" rowspan="2"></td><td id="today_3" rowspan="2"></td></tr>
     		<tr>
-    			<td id="today_1"></td><td id="today_2"></td><td id="today_3"></td>
+    			<td id="today_1"></td>
+    			
     		</tr>
     		</table>
     	</div>
@@ -95,50 +98,27 @@
 			</table>
 			
 		</div>
-		<div>
-				   <div id="taipei" style="display:none">
-				   For Taipei
-				   </div>
-				   <div id="new_taipei" style="display:none">
-				   New Taipei
-				   </div>
-		</div>
-		<canvas id="clear-day" width="64" height="64"></canvas>
-		<canvas id="icon1" width="128" height="128"></canvas>
+
     </div><!-- /.page-->
-<!--test icon-->
-<script>
-  var skycons = new Skycons({"color": "pink"});
-  // on Android, a nasty hack is needed: {"resizeClear": true}
-
-  // you can add a canvas by it's ID...
-  skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
-
-  // ...or by the canvas DOM element itself.
-  skycons.add(document.getElementById("icon2"), Skycons.RAIN);
-
-  // if you're using the Forecast API, you can also supply
-  // strings: "partly-cloudy-day" or "rain".
-
-  // start animation!
-  skycons.play();
-
-  // you can also halt animation with skycons.pause()
-
-  // want to change the icon? no problem:
-  skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
-
-  // want to remove one altogether? no problem:
-  skycons.remove("icon2");
-</script>
-
-<!---->    
-
-
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    <!-- dropdown顯示部分 -->
    <script>
+  $( document ).ready(function() {
+        	$.ajax({
+    			url: "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taipei, il')&format=json&callback=callbackFunction",
+                type:"POST",
+                dataType:'script',
+                success: function(msg){
+                   // alert(msg);
+                },
+
+                 error:function(xhr, ajaxOptions, thrownError){ 
+                    alert(xhr.status); 
+                    alert(thrownError); 
+                 }
+            });
+	});
    var ajaxUrl ;
    $(function(){
     $(".dropdown-menu").on('click', 'li a', function(){
@@ -223,7 +203,7 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="https//darkskyapp.github.io/skycons/skycons.js"></script>
+    <script src="https://darkskyapp.github.io/skycons/skycons.js"></script>
     <script src="skyIcons.js"></script>
     <script>
     </script>
@@ -251,121 +231,8 @@
     $( "#today_3" ).append( temper.forecast[0].date);
     $( "#today_2" ).append( temper.forecast[0].text);
     $( "#today_1" ).append( ftoC(temper.forecast[0].low) +" - "+ftoC(temper.forecast[0].high)+"&#8451;");
+    $( "#now" ).append( ftoC(temper.condition.temp)+"&#8451;");
     };
 </script>
 </body>
 </html>
-<!--
-{
- "query": {
-  "count": 1,
-  "created": "2015-05-09T12:21:40Z",
-  "lang": "zh-tw",
-  "results": {
-   "channel": {
-    "title": "Yahoo! Weather - Greenland, GL",
-    "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Greenland__GL/*http://weather.yahoo.com/forecast/GLXX0012_f.html",
-    "description": "Yahoo! Weather for Greenland, GL",
-    "language": "en-us",
-    "lastBuildDate": "Sat, 09 May 2015 9:49 am CGST",
-    "ttl": "60",
-    "location": {
-     "city": "Greenland",
-     "country": "Greenland",
-     "region": ""
-    },
-    "units": {
-     "distance": "mi",
-     "pressure": "in",
-     "speed": "mph",
-     "temperature": "F"
-    },
-    "wind": {
-     "chill": "21",
-     "direction": "140",
-     "speed": "12"
-    },
-    "atmosphere": {
-     "humidity": "83",
-     "pressure": "30.12",
-     "rising": "0",
-     "visibility": "2.17"
-    },
-    "astronomy": {
-     "sunrise": "3:21 am",
-     "sunset": "11:22 pm"
-    },
-    "image": {
-     "title": "Yahoo! Weather",
-     "width": "142",
-     "height": "18",
-     "link": "http://weather.yahoo.com",
-     "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
-    },
-    "item": {
-     "title": "Conditions for Greenland, GL at 9:49 am CGST",
-     "lat": "71.8",
-     "long": "-42.18",
-     "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Greenland__GL/*http://weather.yahoo.com/forecast/GLXX0012_f.html",
-     "pubDate": "Sat, 09 May 2015 9:49 am CGST",
-     "condition": {
-      "code": "14",
-      "date": "Sat, 09 May 2015 9:49 am CGST",
-      "temp": "30",
-      "text": "Light Snow"
-     },
-     "description": "\n<img src=\"http://l.yimg.com/a/i/us/we/52/14.gif\"/><br />\n<b>Current Conditions:</b><br />\nLight Snow, 30 F<BR />\n<BR /><b>Forecast:</b><BR />\nSat - Cloudy. High: 32 Low: 22<br />\nSun - Mostly Cloudy. High: 33 Low: 26<br />\nMon - AM Clouds/PM Sun. High: 36 Low: 25<br />\nTue - Mostly Cloudy. High: 33 Low: 24<br />\nWed - Mostly Sunny. High: 34 Low: 23<br />\n<br />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Greenland__GL/*http://weather.yahoo.com/forecast/GLXX0012_f.html\">Full Forecast at Yahoo! Weather</a><BR/><BR/>\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)<br/>\n",
-     "forecast": [
-      {
-       "code": "26",
-       "date": "9 May 2015",
-       "day": "Sat",
-       "high": "32",
-       "low": "22",
-       "text": "Cloudy"
-      },
-      {
-       "code": "28",
-       "date": "10 May 2015",
-       "day": "Sun",
-       "high": "33",
-       "low": "26",
-       "text": "Mostly Cloudy"
-      },
-      {
-       "code": "30",
-       "date": "11 May 2015",
-       "day": "Mon",
-       "high": "36",
-       "low": "25",
-       "text": "AM Clouds/PM Sun"
-      },
-      {
-       "code": "28",
-       "date": "12 May 2015",
-       "day": "Tue",
-       "high": "33",
-       "low": "24",
-       "text": "Mostly Cloudy"
-      },
-      {
-       "code": "34",
-       "date": "13 May 2015",
-       "day": "Wed",
-       "high": "34",
-       "low": "23",
-       "text": "Mostly Sunny"
-      }
-     ],
-     "guid": {
-      "isPermaLink": "false",
-      "content": "GLXX0012_2015_05_13_7_00_CGST"
-     }
-    }
-   }
-  }
- }
-}
--->
-
-
