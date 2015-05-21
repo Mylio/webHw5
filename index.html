@@ -87,17 +87,19 @@
 			            <th data-field="data">日期</th>
 			            <th data-field="condict">天氣狀況</th>
 			            <th data-field="temper">氣溫(攝氏)</th>
-			        </tr><td id="fore1_1"></td><td id="fore1_2"></td><td id="fore1_3"></td>
+			        </tr>
 			        <tr>
-			        </tr><td id="fore2_1"></td><td id="fore2_2"></td><td id="fore2_3"></td>
-			        <tr>
-			        </tr><td id="fore3_1"></td><td id="fore3_2"></td><td id="fore3_3"></td>
-			        <tr>
+			        <td id="fore1_1"></td><td id="fore1_2"></td><td id="fore1_3"></td>
+			        </tr>
+					<tr>
+			        <td id="fore2_1"></td><td id="fore2_2"></td><td id="fore2_3"></td>		        
+			        </tr>
+			        <tr><td id="fore3_1"></td><td id="fore3_2"></td><td id="fore3_3"></td>
 			        </tr>
 			    </thead>
-			</table>
-			
+			</table>		
 		</div>
+		<table><tr><td height="50px"></td></tr></table>
 
     </div><!-- /.page-->
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -138,7 +140,7 @@
 		}else if($(this).text()=="基隆市"){
 		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='keelung,il')&format=json&callback=callbackFunction" ;
 		}else if($(this).text()=="桃園市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='桃園市,il')&format=json&callback=callbackFunction" ;
+		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='桃園區,il')&format=json&callback=callbackFunction" ;
 		}else if($(this).text()=="新竹市"){
 		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='hsinchu_city, il')&format=json&callback=callbackFunction" ;
 		}else if($(this).text()=="新竹縣"){
