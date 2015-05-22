@@ -1,10 +1,4 @@
 <style>
-body {
-	/*this img is from http://www.aibizsolutions.com/img/wallp3.jpg*/
-	background-image: url("img/banner.jpg") no-repeat;
-	background-color: black ;
-
-}
 .main-header {
   	text-align: center;
   	font-size: 50px ;
@@ -28,4 +22,8 @@ td,th{
 	text-align: center;
 }
 
+.dropdown-menu{
+	height: 50vh ;
+	overflow: scroll;
+}
 </style>

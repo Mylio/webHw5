@@ -18,6 +18,7 @@
     <![endif]-->
   </head>
   <body>
+  	<!--this img is from http://www.aibizsolutions.com/img/wallp3.jpg-->
   <header><img src="img/banner1.jpg" width="100%"></header>
   	
  
@@ -99,142 +100,15 @@
 			    </thead>
 			</table>		
 		</div>
-		<table><tr><td height="50px"></td></tr></table>
-
+		<table><tr><td id="test" height="50px"><canvas id='cloud2' width='100' height='100'></canvas></td></tr></table>
     </div><!-- /.page-->
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   <!-- dropdown顯示部分 -->
-   <script>
-  $( document ).ready(function() {
-        	$.ajax({
-    			url: "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taipei, il')&format=json&callback=callbackFunction",
-                type:"POST",
-                dataType:'script',
-                success: function(msg){
-                   // alert(msg);
-                },
-
-                 error:function(xhr, ajaxOptions, thrownError){ 
-                    alert(xhr.status); 
-                    alert(thrownError); 
-                 }
-            });
-	});
-   var ajaxUrl ;
-   $(function(){
-    $(".dropdown-menu").on('click', 'li a', function(){
-	    $(".btn:first-child").text($(this).text());
-	    $(".btn:first-child").append(" "+"<span class='caret'></span>");
-	    $(".btn:first-child").val($(this).text());
-		if($(this).text()=="台北市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taipei, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="新北市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='new_taipei, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="台中市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taichung, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="臺南市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='tainan, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="高雄市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='kaohsiung, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="基隆市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='keelung,il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="桃園市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='桃園區,il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="新竹市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='hsinchu_city, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="新竹縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='新竹縣, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="苗栗縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='miaoli_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="彰化縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='changhua_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="南投縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='nantou_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="雲林縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='yunlin_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="嘉義市"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='chiayi_city, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="嘉義縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='嘉義縣, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="屏東縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='pingtung_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="宜蘭縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='yilan_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="花蓮縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='hualien_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="台東縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='taitung_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="澎湖縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='penghu_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="金門縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='kinmen_country, il')&format=json&callback=callbackFunction" ;
-		}else if($(this).text()=="連江縣"){
-		ajaxUrl = "https://query.yahooapis.com/v1/public/yql?q=select item,wind from weather.forecast where woeid in (select woeid from geo.places(1) where text='連江縣, il')&format=json&callback=callbackFunction" ;
-		};
-		/*
-	    var locNam = $(this).text();//optional
-		$('#lacationInfor').html(locNam);//optional
-		$("#lacationInfor").children($( "div" )).each(function() {
-		  $( this ).css("display","none");
-		});
-		    if($(this).text()=="台北市"){
-		      $("#taipei").show();
-		    }else if($(this).text()=="新北市"){
-		      $("#new_taipei").show();	
-		    };*/
-		 /*ajax*/
-    	$.ajax({
-    			url: ajaxUrl,
-                type:"POST",
-                dataType:'script',
-                success: function(msg){
-                   // alert(msg);
-                },
-
-                 error:function(xhr, ajaxOptions, thrownError){ 
-                    alert(xhr.status); 
-                    alert(thrownError); 
-                 }
-            });
-		   	
-		   	});
-			});
-
-   </script>
-
+ 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://darkskyapp.github.io/skycons/skycons.js"></script>
     <script src="skyIcons.js"></script>
-    <script>
-    </script>
-    <script>
-    var callbackFunction = function(data) {
-    $( "#weacon" ).empty();
-    $("td").empty();	
-    var loca = data.query.results.channel.location;
-    var winds = data.query.results.channel.wind;
-    var temper = data.query.results.channel.item;
-    function ftoC (f){
-    	var c = (f-32)*5/9 ;
-    	return c.toFixed(1);
-    }
-    $( "#weacon" ).append( temper.title );
-    $( "#fore1_1" ).append( temper.forecast[1].date);
-    $( "#fore2_1" ).append( temper.forecast[2].date);
-    $( "#fore3_1" ).append( temper.forecast[3].date);
-    $( "#fore1_2" ).append( temper.forecast[1].text);
-    $( "#fore2_2" ).append( temper.forecast[2].text);
-    $( "#fore3_2" ).append( temper.forecast[3].text);
-    $( "#fore1_3" ).append( ftoC(temper.forecast[1].low) +" - "+ftoC(temper.forecast[1].high)+"&#8451;");
-    $( "#fore2_3" ).append( ftoC(temper.forecast[2].low) +" - "+ftoC(temper.forecast[2].high)+"&#8451;");
-    $( "#fore3_3" ).append( ftoC(temper.forecast[3].low) +" - "+ftoC(temper.forecast[3].high)+"&#8451;");
-    $( "#today_3" ).append( temper.forecast[0].date);
-    $( "#today_2" ).append( temper.forecast[0].text);
-    $( "#today_1" ).append( ftoC(temper.forecast[0].low) +" - "+ftoC(temper.forecast[0].high)+"&#8451;");
-    $( "#now" ).append( ftoC(temper.condition.temp)+"&#8451;");
-    };
-</script>
+    
 </body>
 </html>
